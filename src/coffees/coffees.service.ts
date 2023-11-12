@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { Coffee } from './entities/coffee.entity';
@@ -7,6 +7,8 @@ import { DataSource, Repository } from 'typeorm';
 import { Flavor } from './entities/flavor.entity';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
 import { Event } from 'src/events/entities/event.entity/event.entity';
+import { ConfigService, ConfigType } from '@nestjs/config';
+import coffeesConfig from './config/coffees.config';
 
 @Injectable()
 export class CoffeesService {
@@ -17,7 +19,19 @@ export class CoffeesService {
     private readonly flavorRepository: Repository<Flavor>,
     //In order to create transactions (with QueryRunner) we need to inject the DataSource object into a class in the normal way
     private dataSource: DataSource,
-  ) {}
+    private readonly configService: ConfigService,
+
+    @Inject(coffeesConfig.KEY)
+    private readonly coffeesConfiguration: ConfigType<typeof coffeesConfig>,
+
+  ) {
+    // (from app module config)
+    const databaseHost = this.configService.get('database.host', 'localhost');
+    console.log(databaseHost);
+
+    // (from coffees module config)
+    console.log(coffeesConfiguration.foo);
+  }
 
   async create(createCoffeeDto: CreateCoffeeDto) {
     const flavors = await Promise.all(
