@@ -24,7 +24,7 @@
 
 ## Description
 
-![tests-auth](https://github.com/SRayen/Nestjs-official-fundamentals-course/blob/master/.github/workflows/test_coffees.yml/badge.svg)
+![test-srayen](https://github.com/SRayen/Nestjs-official-fundamentals-course/workflows/test_coffees.yml/badge.svg)
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
