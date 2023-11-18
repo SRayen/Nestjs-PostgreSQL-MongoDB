@@ -24,7 +24,7 @@
 
 ## Description
 ![tests-auth](https://github.com/sRayen/Ticketing-Microservices/workflows/tests-auth/badge.svg)
-![test-srayen](https://github.com/SRayen/Nestjs-official-fundamentals-course/workflows/test_coffees/badge.svg)
+![test-srayen](https://github.com/sRayen/Nestjs-official-fundamentals-course/workflows/test_coffees/badge.svg)
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
