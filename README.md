@@ -26,6 +26,9 @@
 ![tests-auth](https://github.com/sRayen/Ticketing-Microservices/workflows/tests-auth/badge.svg)
 ![test-srayen](https://github.com/sRayen/Nestjs-official-fundamentals-course/workflows/test_coffees/badge.svg)
 
+[![Test status](https://actions-badge.github.io/SRayen/Nestjs-official-fundamentals-course/main/tests?branch=main)](https://github.com/SRayen/Nestjs-official-fundamentals-course/actions/workflows/tests/runs)
+
+
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
