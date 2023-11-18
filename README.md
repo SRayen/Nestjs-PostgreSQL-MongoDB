@@ -1,3 +1,9 @@
+<h1 align="center">
+  
+[![tests-srayen](https://github.com/SRayen/Nestjs-official-fundamentals-course/actions/workflows/test_coffees.yml/badge.svg)](https://github.com/SRayen/Nestjs-official-fundamentals-course/actions/workflows/test_coffees.yml)
+  
+</h1>
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
@@ -25,10 +31,6 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Tests
-
-[![tests-srayen](https://github.com/SRayen/Nestjs-official-fundamentals-course/actions/workflows/test_coffees.yml/badge.svg)](https://github.com/SRayen/Nestjs-official-fundamentals-course/actions/workflows/test_coffees.yml)
 
 ## Installation
 
