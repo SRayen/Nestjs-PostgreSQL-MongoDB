@@ -15,7 +15,6 @@ export class Coffee {
   name: string;
   @Column()
   brand: string;
-
   @Column({ nullable: true })
   descriptions: string;
 

@@ -5,6 +5,7 @@ import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { WrapResponseInterceptor } from './common/interceptors/wrap-response.interceptor';
 import { TimeoutInterceptor } from './common/interceptors/timeout.interceptor';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as fs from 'fs';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -35,6 +36,13 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
+
+  //Write Swagger JSON File
+  const swaggerJson = JSON.stringify(document, null, 2);
+  const filePath = './exported-swagger.json';
+
+  fs.writeFileSync(filePath, swaggerJson);
+  console.log(`Swagger JSON exported to ${filePath}`);
 
   await app.listen(3000);
 }

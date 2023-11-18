@@ -5,8 +5,8 @@ import { Coffee } from './entities/coffee.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DataSource, Repository } from 'typeorm';
 import { Flavor } from './entities/flavor.entity';
-import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
-import { Event } from 'src/events/entities/event.entity/event.entity';
+import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
+import { Event } from '../events/entities/event.entity/event.entity';
 import { ConfigService, ConfigType } from '@nestjs/config';
 import coffeesConfig from './config/coffees.config';
 
@@ -19,17 +19,17 @@ export class CoffeesService {
     private readonly flavorRepository: Repository<Flavor>,
     //In order to create transactions (with QueryRunner) we need to inject the DataSource object into a class in the normal way
     private dataSource: DataSource,
-    private readonly configService: ConfigService,
+    // private readonly configService: ConfigService,
 
-    @Inject(coffeesConfig.KEY)
-    private readonly coffeesConfiguration: ConfigType<typeof coffeesConfig>,
+    // @Inject(coffeesConfig.KEY)
+    // private readonly coffeesConfiguration: ConfigType<typeof coffeesConfig>,
   ) {
     // (from app module config)
-    const databaseHost = this.configService.get('database.host', 'localhost');
-    console.log(databaseHost);
+    // const databaseHost = this.configService.get('database.host', 'localhost');
+    // console.log(databaseHost);
 
-    // (from coffees module config)
-    console.log(coffeesConfiguration.foo);
+    // // (from coffees module config)
+    // console.log(coffeesConfiguration.foo);
   }
 
   async create(createCoffeeDto: CreateCoffeeDto) {
@@ -87,29 +87,29 @@ export class CoffeesService {
   /*To Achieve multiple actions to DB (ensuring they only happen if everything is successful) 
   ===> we will use Transaction */
 
-  async recommendCoffee(coffee: Coffee) {
-    const queryRunner = this.dataSource.createQueryRunner();
-    await queryRunner.connect();
-    await queryRunner.startTransaction();
-    try {
-      coffee.recommendations++;
+  // async recommendCoffee(coffee: Coffee) {
+  //   const queryRunner = this.dataSource.createQueryRunner();
+  //   await queryRunner.connect();
+  //   await queryRunner.startTransaction();
+  //   try {
+  //     coffee.recommendations++;
 
-      const recommendEvent = new Event();
+  //     const recommendEvent = new Event();
 
-      recommendEvent.name = 'recommend_coffee';
-      recommendEvent.type = 'coffee';
-      recommendEvent.payload = { coffeeId: coffee.id };
+  //     recommendEvent.name = 'recommend_coffee';
+  //     recommendEvent.type = 'coffee';
+  //     recommendEvent.payload = { coffeeId: coffee.id };
 
-      await queryRunner.manager.save(coffee);
-      await queryRunner.manager.save(recommendEvent);
-      await queryRunner.commitTransaction();
-    } catch (err) {
-      await queryRunner.rollbackTransaction();
-    } finally {
-      //Close queryRunner once everything is finished
-      await queryRunner.release(); //Liberate
-    }
-  }
+  //     await queryRunner.manager.save(coffee);
+  //     await queryRunner.manager.save(recommendEvent);
+  //     await queryRunner.commitTransaction();
+  //   } catch (err) {
+  //     await queryRunner.rollbackTransaction();
+  //   } finally {
+  //     //Close queryRunner once everything is finished
+  //     await queryRunner.release(); //Liberate
+  //   }
+  // }
 
   /* preloadFlavorByName method ensures that all of the flavors associated with a coffee entity exist in the database before 
   the coffee entity is saved. */
