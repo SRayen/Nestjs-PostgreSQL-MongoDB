@@ -23,10 +23,12 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
-[![tests-srayen](https://github.com/SRayen/Nestjs-official-fundamentals-course/actions/workflows/test_coffees.yml/badge.svg)](https://github.com/SRayen/Nestjs-official-fundamentals-course/actions/workflows/test_coffees.yml)
-
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+
+## Tests
+
+[![tests-srayen](https://github.com/SRayen/Nestjs-official-fundamentals-course/actions/workflows/test_coffees.yml/badge.svg)](https://github.com/SRayen/Nestjs-official-fundamentals-course/actions/workflows/test_coffees.yml)
 
 ## Installation
 
