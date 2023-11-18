@@ -23,8 +23,8 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
-
-![test-srayen](https://github.com/SRayen/Nestjs-official-fundamentals-course/workflows/test_coffees.yml/badge.svg)
+![tests-auth](https://github.com/sRayen/Ticketing-Microservices/workflows/tests-auth/badge.svg)
+![test-srayen](https://github.com/SRayen/Nestjs-official-fundamentals-course/workflows/test_coffees/badge.svg)
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
