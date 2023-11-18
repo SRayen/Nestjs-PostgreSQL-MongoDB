@@ -1,0 +1,461 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/coffees": {
+      "post": {
+        "operationId": "CoffeesController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCoffeeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "coffees"
+        ]
+      },
+      "get": {
+        "operationId": "CoffeesController_findAll",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "type": "number"
+            }
+          },
+          {
+            "name": "offset",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Coffee"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbiden."
+          }
+        },
+        "tags": [
+          "coffees"
+        ]
+      }
+    },
+    "/coffees/{id}": {
+      "get": {
+        "operationId": "CoffeesController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Coffee"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "coffees"
+        ]
+      },
+      "patch": {
+        "operationId": "CoffeesController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCoffeeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Coffee"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "coffees"
+        ]
+      },
+      "delete": {
+        "operationId": "CoffeesController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Coffee"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "coffees"
+        ]
+      }
+    },
+    "/coffee-ratings": {
+      "post": {
+        "operationId": "CoffeeRatingsController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCoffeeRatingDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "coffee-ratings"
+        ]
+      },
+      "get": {
+        "operationId": "CoffeeRatingsController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "coffee-ratings"
+        ]
+      }
+    },
+    "/coffee-ratings/{id}": {
+      "get": {
+        "operationId": "CoffeeRatingsController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "coffee-ratings"
+        ]
+      },
+      "patch": {
+        "operationId": "CoffeeRatingsController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCoffeeRatingDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "coffee-ratings"
+        ]
+      },
+      "delete": {
+        "operationId": "CoffeeRatingsController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "coffee-ratings"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "IluvCoffee API ",
+    "description": "Coffee Application",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreateCoffeeDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of a coffee"
+          },
+          "brand": {
+            "type": "string",
+            "description": "The brand of a coffee"
+          },
+          "flavors": {
+            "example": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "brand",
+          "flavors"
+        ]
+      },
+      "Coffee": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "brand": {
+            "type": "string"
+          },
+          "descriptions": {
+            "type": "string"
+          },
+          "flavors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Flavor"
+            }
+          },
+          "recommendations": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "brand",
+          "descriptions",
+          "flavors",
+          "recommendations"
+        ]
+      },
+      "Flavor": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "coffees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Coffee"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "coffees"
+        ]
+      },
+      "UpdateCoffeeDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of a coffee"
+          },
+          "brand": {
+            "type": "string",
+            "description": "The brand of a coffee"
+          },
+          "flavors": {
+            "example": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "CreateCoffeeRatingDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "UpdateCoffeeRatingDto": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  }
+}
