@@ -7,5 +7,5 @@ services:
     ports:
       - "27017:27017"
     environment:
-      - MONGODB_DATABASE=nest-course
+      - MONGODB_DATABASE=${MONGODB_DATABASE}
 
